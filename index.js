@@ -3,8 +3,9 @@ LIST_PASSWD = "default_password"
 addEventListener("fetch", event => {  
     event.respondWith(handleRequest(event.request))
 })
-const static_ui = "https://bestk.github.io/anynote"
-const server_api = "https://note.anysign.xyz"
+const static_ui = "https://wizyoung.github.io/anynote"
+const server_api = "https://pastebin.v550.top"
+const server_api2 = "https://pastebin.v550.workers.dev"
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
@@ -23,7 +24,10 @@ async function handleRequest(request) {
         await NOTE.put(key, value)
         let res = `SOURCE: <a href = "${server_api}/${key}" target="_blank">${server_api}/${key}</a>`+
                   `<br/>HTML: <a href = "${server_api}/${key}.html" target="_blank">${server_api}/${key}.html</a>`+
-                  `<br/>MARKDOWN: <a href = "${server_api}/${key}.md" target="_blank">${server_api}/${key}.md</a>`
+                  `<br/>MARKDOWN: <a href = "${server_api}/${key}.md" target="_blank">${server_api}/${key}.md</a>`+
+                  `<br/><br/>SOURCE2: <a href = "${server_api2}/${key}" target="_blank">${server_api2}/${key}</a>`+
+                  `<br/>HTML2: <a href = "${server_api2}/${key}.html" target="_blank">${server_api2}/${key}.html</a>`+
+                  `<br/>MARKDOWN2: <a href = "${server_api2}/${key}.md" target="_blank">${server_api2}/${key}.md</a>`
         return new Response(res,{ headers: corsHeaders})
     }
 
